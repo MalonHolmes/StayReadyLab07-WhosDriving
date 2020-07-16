@@ -1,7 +1,9 @@
 package Vehicles;
 import Driving.Bike;
 public class MountainBike extends Bike {
-    Integer currTirePressure = 60; // aka PSI should start at the top tire pressue: 60;
+
+    Integer PSI; // AKA current tire pressure
+
     /**
      * The top speed of a mountain bike should be 28.5
      * but for every 1 PSI under the recommended tire
@@ -11,8 +13,8 @@ public class MountainBike extends Bike {
      * @return 28.5 minus any reduction to top speed
      */
     public Double getTopSpeed() {
-        if (currTirePressure < recommendedTirePressure()){
-            return 28.5 - (recommendedTirePressure() - getTirePressure());
+        if (PSI < recommendedTirePressure()){
+            return 28.5 - (recommendedTirePressure() - PSI);
         }
         return 28.5;
     }
@@ -30,9 +32,13 @@ public class MountainBike extends Bike {
      * @return time in seconds to travel distance
      */
     public Integer transport(Double distanceInMiles) {
-        Integer timeToTravelInSecs = 0;
-        // TODO
-        return timeToTravelInSecs;
+        int time = 3600;
+        Double seconds = (distanceInMiles / 28.5) * time;
+        while(distanceInMiles >= 30 && this.PSI > 20){
+            this.PSI--;
+            distanceInMiles -= 30;
+        }
+        return (int)Math.round(seconds);
     }
     /**
      * Gets the current amount of pressure in PSI
@@ -42,14 +48,14 @@ public class MountainBike extends Bike {
      */
     @Override
     public Integer getTirePressure() {
-        return currTirePressure;
+        return PSI;
     }
     /**
      * Returns the tires to the recommended PSI
      */
     @Override
     public void inflateTires() {
-        currTirePressure = recommendedTirePressure();
+        PSI = recommendedTirePressure();
     }
     /**
      * The Recommended PSI of a mountain bike is 30

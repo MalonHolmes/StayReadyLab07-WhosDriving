@@ -2,14 +2,14 @@ package Vehicles;
 
 import Driving.Car;
 
-public class HondaCivic extends Car {
+public class CadillacEscalade extends Car {
 
     private boolean changeOil = false;
     private String redLight = "Check engine light on!";
     private double distanceTraveled;
     private Double topSpeed = 0.0;
 
-    public HondaCivic()
+    public CadillacEscalade()
     {
         this.distanceTraveled = 0.0;
         this.topSpeed = 70.0;

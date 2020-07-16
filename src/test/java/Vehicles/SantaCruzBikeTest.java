@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class MountainBikeTest {
+public class SantaCruzBikeTest {
 
-    Bike mb;
+    Bike sc;
 
     @Before
     public void setUp() throws Exception {
-        mb = new MountainBike();
+        sc = new SantaCruzBike();
     }
 
     @Test
@@ -21,7 +21,7 @@ public class MountainBikeTest {
         Double expected = 28.5;
 
         // Act
-        Double actual = mb.getTopSpeed();
+        Double actual = sc.getTopSpeed();
 
         // Assert
         assertEquals(expected, actual);
@@ -33,9 +33,9 @@ public class MountainBikeTest {
         Double expected = 26.5;
 
         // Act
-        mb.transport(30.0);
-        mb.transport(30.0);
-        Double actual = mb.getTopSpeed();
+        sc.transport(30.0);
+        sc.transport(30.0);
+        Double actual = sc.getTopSpeed();
 
         // Assert
         assertEquals(expected, actual);
@@ -47,9 +47,9 @@ public class MountainBikeTest {
         Double expected = 28.5;
 
         // Act
-        mb.transport(30 * 2.0);
-        mb.inflateTires();
-        Double actual = mb.getTopSpeed();
+        sc.transport(30 * 2.0);
+        sc.inflateTires();
+        Double actual = sc.getTopSpeed();
 
         // Assert
         assertEquals(expected, actual);
@@ -61,7 +61,7 @@ public class MountainBikeTest {
         Integer expected = (60 * 60);
 
         // Act
-        Integer actual = mb.transport(28.5);
+        Integer actual = sc.transport(28.5);
 
         // Assert
         assertEquals(expected, actual);
@@ -73,8 +73,8 @@ public class MountainBikeTest {
         Integer expected = 28;
 
         // Act
-        mb.transport(30.0 * 2);
-        Integer actual = mb.getTirePressure();
+        sc.transport(30.0 * 2);
+        Integer actual = sc.getTirePressure();
 
         // Assert
         assertEquals(expected, actual);
@@ -86,8 +86,8 @@ public class MountainBikeTest {
         Integer expected = 27;
 
         // Act
-        mb.transport(30.0 * 3);
-        Integer actual = mb.getTirePressure();
+        sc.transport(30.0 * 3);
+        Integer actual = sc.getTirePressure();
 
         // Assert
         assertEquals(expected, actual);
@@ -99,9 +99,9 @@ public class MountainBikeTest {
         Integer expected = 20;
 
         // Act
-        mb.transport(30.0 * 100);
-        mb.transport(30.0 * 2);
-        Integer actual = mb.getTirePressure();
+        sc.transport(30.0 * 100);
+        sc.transport(30.0 * 2);
+        Integer actual = sc.getTirePressure();
 
         // Assert
         assertEquals(expected, actual);
@@ -113,13 +113,13 @@ public class MountainBikeTest {
         Integer expected = 30;
 
         // Act
-        mb.transport(29.9);
-        mb.transport(29.9);
-        mb.transport(29.9);
-        mb.transport(29.9);
-        mb.transport(29.9);
-        mb.transport(29.9);
-        Integer actual = mb.getTirePressure();
+        sc.transport(29.9);
+        sc.transport(29.9);
+        sc.transport(29.9);
+        sc.transport(29.9);
+        sc.transport(29.9);
+        sc.transport(29.9);
+        Integer actual = sc.getTirePressure();
 
         // Assert
         assertEquals(expected, actual);
@@ -131,7 +131,7 @@ public class MountainBikeTest {
         Integer expected = 30;
 
         // Act
-        Integer actual = mb.getTirePressure();
+        Integer actual = sc.getTirePressure();
 
         // Assert
         assertEquals(expected, actual);
@@ -143,11 +143,11 @@ public class MountainBikeTest {
         Integer expected = 30;
 
         // Act
-        mb.transport(30.0 * 3);
-        Integer tirePressureAfterTransport = mb.getTirePressure();
+        sc.transport(30.0 * 3);
+        Integer tirePressureAfterTransport = sc.getTirePressure();
 
-        mb.inflateTires();
-        Integer actual = mb.getTirePressure();
+        sc.inflateTires();
+        Integer actual = sc.getTirePressure();
 
         // Assert
         assertNotEquals(expected, tirePressureAfterTransport);
@@ -160,9 +160,10 @@ public class MountainBikeTest {
         Integer expected = 30;
 
         // Act
-        Integer actual = mb.recommendedTirePressure();
+        Integer actual = sc.recommendedTirePressure();
 
         // Assert
         assertEquals(expected, actual);
     }
+
 }
